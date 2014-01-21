@@ -28,10 +28,10 @@ RUN wget --no-verbose -O /tmp/apache-tomcat-$TOMCAT_VERSION.tar.gz \
 # stop building if md5sum does not match
 RUN echo "f90b100cf51ae0a444bef5acd7b6edb2  /tmp/apache-tomcat-$TOMCAT_VERSION.tar.gz" | \
     md5sum -c
-RUN rm -f /tmp/apache-tomcat-$TOMCAT_VERSION.tar.gz
 
 # install tomcat in /usr/share/tomcat
 RUN tar xzf /tmp/apache-tomcat-$TOMCAT_VERSION.tar.gz --strip-components=1 -C /usr/share/tomcat
+RUN rm -f /tmp/apache-tomcat-$TOMCAT_VERSION.tar.gz
 ENV CATALINA_HOME /usr/share/tomcat
 ENV CATALINA_OPTS -Xmx1g -XX:MaxPermSize=300m
 
