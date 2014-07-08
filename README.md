@@ -1,11 +1,27 @@
-Docker - Trusted Build for Kuali Student Bundled
-================================================
+Build for Kuali Student Bundled Impex
+======================================================
 
-You can test it out by issuing:
+This will load the database content required to run the ks-bundled-app for
+a specific build tag.
+
+If you are running oracle in a docker container it can be committed after
+impex runs and this step may only be needed once per build.
+
+
+Run wnameless/oracle-11g-xe Container
+-------------------------------------
+
+Startup an oracle container:
 ```
-docker run -p 8080:8080 -t hrafique/kuali-student-bundled
+$ docker run -name oracle -d wnameless/oracle-11g-xe
 ```
-Note: this will expose port `8080` from the container to port `8080` on the docker host.
+
+Run impex against oracle Container
+----------------------------------
+
+```
+$ docker run -i -t --link oracle:db mocleiri/bundled-impex:799
+```
 
 Following environment variables are supported:
 
@@ -15,8 +31,4 @@ Environment Variable | Default Value | Comment
 `ORACLE_DBA_PASSWORD` | manager | Oracle DBA Password
 `SKIP_DB_RESET` | false | If `true`, the database reset is skipped
 
-A full command invocation might look like:
-```
-docker run -e ORACLE_DBA_URL=jdbc:oracle:thin:@128.x.x.x:1521:XE \
-    -e SKIP_DB_RESET=true -p 8080:8080 -t hrafique/kuali-student-bundled
-```
+If linked to a container with the db alias the ORACLE_DBA_URL will be automatically constructed.
