@@ -13,14 +13,14 @@ Run wnameless/oracle-11g-xe Container
 
 Startup an oracle container:
 ```
-$ docker run -name oracle -d wnameless/oracle-11g-xe
+$ docker run --name oracle -d -t wnameless/oracle-11g-xe
 ```
 
 Run impex against oracle Container
 ----------------------------------
 
 ```
-$ docker run -i -t --link oracle:db mocleiri/bundled-impex:799
+$ docker run -i -t --link oracle:db mocleiri/bundled-impex:build-799
 ```
 
 Following environment variables are supported:
@@ -31,4 +31,8 @@ Environment Variable | Default Value | Comment
 `ORACLE_DBA_PASSWORD` | manager | Oracle DBA Password
 `SKIP_DB_RESET` | false | If `true`, the database reset is skipped
 
-If linked to a container with the db alias the ORACLE_DBA_URL will be automatically constructed.
+If linked to a container with the db alias the *ORACLE_DBA_URL* will be automatically constructed.
+
+Once the impex process has completed the container will stop.
+
+The oracle container could be committed at this point in time as a way to quickely restore back to the post impex situation.  Note that the image saved at this point is in the 5 GB region and not very portable.  But it can be useful within the same docker instance.
