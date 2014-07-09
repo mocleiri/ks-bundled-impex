@@ -41,7 +41,7 @@ RUN mvn install:install-file -DgroupId=com.oracle -DartifactId=ojdbc6_g \
 
 RUN apt-get -y install subversion
 
-ENV BUILD_NUMBER 799
+ENV BUILD_NUMBER 816
 
 # install maven dependency plugin
 
