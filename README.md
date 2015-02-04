@@ -8,7 +8,7 @@ If you are running oracle in a docker container it can be committed after
 impex runs and this step may only be needed once per build.
 
 
-Run wnameless/oracle-11g-xe Container
+Run wnameless/oracle-xe-11g Container
 -------------------------------------
 
 Startup an oracle container:
