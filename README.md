@@ -13,7 +13,7 @@ Run wnameless/oracle-11g-xe Container
 
 Startup an oracle container:
 ```
-$ docker run --name oracle -d -t wnameless/oracle-11g-xe
+$ docker run --name oracle -d -t wnameless/oracle-xe-11g
 ```
 
 Run impex against oracle Container
