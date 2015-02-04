@@ -1,4 +1,4 @@
-FROM hrafique/openjdk-quantal
+FROM dockerfile/java:oracle-java7
 
 MAINTAINER Haroon Rafique https://github.com/hrafique
 
