@@ -20,14 +20,14 @@ Run impex against oracle Container
 ----------------------------------
 
 ```
-$ docker run -i -t --link oracle:db mocleiri/bundled-impex:build-799
+$ docker run -i -t --link oracle:db kualistudent/bundled-impex:build-917
 ```
 
 Run impex against oracle db running on the host
 -----------------------------------------------
 
 ```
-$ docker run -i -t -e ORACLE_DBA_PASSWORD=<password> -e ORACLE_DBA_URL="jdbc:oracle:thin:@<lan ip of host computer>:1521:XE" mocleiri/bundled-impex:build-799
+$ docker run -i -t -e ORACLE_DBA_PASSWORD=<password> -e ORACLE_DBA_URL="jdbc:oracle:thin:@<lan ip of host computer>:1521:XE" kualistudent/bundled-impex:build-917
 ```
 Following environment variables are supported:
 
